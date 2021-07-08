@@ -1,4 +1,25 @@
 <?php
+
+$a = [ 9, 2, 3, 4,1, 5, 8,9];
+function insertSort($arr)
+{
+    $count = count($arr);
+    if ($count < 2) {
+        return $arr;
+    }
+    for ($i = 1; $i < $count; $i++) {
+        $temp = $arr[$i];
+        for ($k = $i - 1; $k >= 0; $k--) {
+            if ($temp< $arr[$k]) {
+                $arr[$k + 1] = $arr[$k];
+                $arr[$k] = $temp;
+            }
+        }
+    }
+    return $arr;
+}
+print_r(insertSort($a));
+
 /**
  * 冒泡排序
  * @param array $arr
@@ -40,7 +61,7 @@ function SelectSort(array $arr): array
         //假设最小的数的为未排序区的第一个数
         $min = $i;
         //拿未排序区的每一个值与最小数比较，总是记录最小的数，这样就可以找到未排序区的最小值
-        for ($j = $i + 1; $j < count($arr); $j++) {
+        for ($j = $i + 1; $j < $len; $j++) {
             if ($arr[$j] < $arr[$min]) {
                 $min = $j;
             }
@@ -105,5 +126,3 @@ function BinarySearchByRecursion($arr, $number, $lower, $high): int
         return $middle;
     }
 }
-$a = [  2, 3, 4,4, 5, 8,9];
-var_dump( BinarySearchByRecursion($a,5,0, count($a)));
