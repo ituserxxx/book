@@ -1,3 +1,3 @@
-# md_technology_book
+# book
 
 A basic knowledge of pure recording technology
